@@ -64,9 +64,9 @@ export const Modal = ({
         </button>
       </header>
       <section className="popUp--body">
-        <div className="p-1">
+        <span style={{ display: 'flex', fontSize: '1.2rem', padding: 10 }}>
           {content}
-        </div>
+        </span>
         <div className="flex-container flex--column flex--center mt-1">
           <div style={{ display: 'flex', gap: '0.5rem' }} className="flex-item flex-item__6 mr-0 mb-0">
             <Button color="secondary" text="cancelar" onClick={onClose} />

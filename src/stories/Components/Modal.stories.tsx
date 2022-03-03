@@ -19,7 +19,7 @@ export const Normal = Template.bind({});
 Normal.args = {
    open: true,
    title: 'Título del modal',
-   content: 'Contenido del modal',
+   content: '¿Quieres guardar los cambios?',
    buttons: 'both'
 };
 
