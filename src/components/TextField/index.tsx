@@ -8,6 +8,10 @@ interface TextFieldProps {
    */
   value?: string
   /**
+   * tipo de dato que tendrá la caja de texto
+   */
+   type?: "text" | "number"
+  /**
    * texto que se muestra cuando el input no tiene valor
    */
   placeholder?: string
@@ -35,6 +39,7 @@ interface TextFieldProps {
 export const TextField = ({
   value,
   placeholder,
+  type = 'text',
   fullWidth,
   disabled = false,
   error = false,
@@ -59,6 +64,7 @@ export const TextField = ({
     <input
       className={className}
       placeholder={placeholder}
+      type={type}
       value={value}
       onChange={handleChange}
       disabled={disabled}
