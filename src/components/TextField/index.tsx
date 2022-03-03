@@ -2,6 +2,7 @@ import React, { useMemo } from "react";
 
 import "../../sass/main.scss";
 import "../../sass/abstracts.scss";
+import "./index.scss";
 
 interface TextFieldProps {
   /**
@@ -19,6 +20,10 @@ interface TextFieldProps {
   /**
    * indica si el input debe mostrarse como marcado con error
    */
+   fullWidth?: boolean
+  /**
+   * indica si el input debe mostrarse como marcado con error
+   */
   error?: boolean
    /**
    * call back cada vez que el usuario realiza un cambio en la caja de texto
@@ -32,6 +37,7 @@ interface TextFieldProps {
 export const TextField = ({
   value,
   placeholder,
+  fullWidth,
   disabled = false,
   error = false,
   onChangeText
@@ -45,6 +51,7 @@ export const TextField = ({
     const classes = [
       ...(error && ['error'] || []),
       ...(disabled && ['disabled'] || []),
+      ...(fullWidth && [''] || []),
     ].join(' ');
     return classes;
   }, [error, disabled]);

@@ -1,18 +1,25 @@
 import React from "react";
 import ReactMultiSelect from "react-select";
 
-import "../../sass/main.scss";
-import "../../sass/abstracts.scss";
+import "./index.scss";
 
 interface SelectProps {
   /**
    * Tipo
    */
+  name?: string
+  /** 
+   * 
+  */
   type?: "normal" | "multiselect";
   /**
    * Tipo
    */
   disabled?: true | false;
+  /** 
+   * 
+  */
+  children?: JSX.Element | Array<JSX.Element>
 }
 
 /**
@@ -21,22 +28,11 @@ interface SelectProps {
  *
  */
 
-export const SelectNormal = (disabled: boolean = false) => {
+const SelectNormal = ({name, children, disabled = false}: SelectProps) => {
   return (
-    <div className="flex-container">
-      <div className="flex-item flex-item__3">
-        <select disabled={disabled}>
-          <option value="0">Seleccione</option>
-          <option value="1">Lunes</option>
-          <option value="3">Martes</option>
-          <option value="4">Miércoles</option>
-          <option value="5">Jueves</option>
-          <option value="6">Viernes</option>
-          <option value="7">Sábado</option>
-          <option value="8">Domingo</option>
-        </select>
-      </div>
-    </div>
+    <select name={name} disabled={disabled}>
+      {children}
+    </select>
   );
 };
 
@@ -58,7 +54,7 @@ export const dayOptions: readonly DayOption[] = [
   { value: "domingo", label: "Domingo", color: "#36B37E" },
 ];
 
-export const MultiSelect = (disabled: boolean = false) => {
+const MultiSelect = (disabled: boolean = false) => {
   return (
     <div className="flex-container">
       <div>
@@ -86,6 +82,6 @@ export const MultiSelect = (disabled: boolean = false) => {
  * 
  * Multiselect Disabled: Se utiliza temporalmente hasta que el usuario complete una acción que permita cargar los elementos (por ejemplo seleccionar la ciudad para cargar las comunas).
  */
-export const Select = ({ type = "normal", disabled=false }: SelectProps) => {
-  return type === "normal" ? SelectNormal(disabled) : MultiSelect(disabled);
+export const Select = ({ children, type = "normal", disabled=false }: SelectProps) => {
+  return type === "normal" ? SelectNormal({ children, disabled }) : MultiSelect(disabled);
 };
