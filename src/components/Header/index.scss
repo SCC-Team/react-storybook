@@ -1,0 +1,132 @@
+@import "../../sass/abstracts";
+
+.account {
+  @include content-2(0, 1rem, 1rem, $grey-ultra-light);
+  &--page-title {
+    background: scale-color($blue-dark, $lightness: +90%);
+    border-radius: 1rem 1rem 0 0;
+    h1 {
+      font-size: 1.5rem;
+    }
+  }
+
+  @include table(
+    1rem,
+    $color-text-active,
+    $white,
+    left,
+    left,
+    $color-text,
+    $color-text,
+    $blue-dark,
+    $blue-dark,
+    $white
+  );
+  table {
+    thead {
+      tr {
+        th {
+          &:nth-child(10) {
+            text-align: center;
+          }
+        }
+      }
+    }
+    tbody {
+      tr {
+        td {
+          &:nth-child(1) {
+            width: 20rem;
+          }
+          &:nth-child(2) {
+            width: 15rem;
+          }
+          &:nth-child(3) {
+            width: 15rem;
+          }
+          &:nth-child(4) {
+            width: 20rem;
+          }
+          &:nth-child(5) {
+            width: 13vw;
+          }
+          &:nth-child(9) {
+            width: 15rem;
+          }
+          &:nth-child(10) {
+            width: 15rem;
+          }
+          &:nth-child(11) {
+            text-align: right;
+          }
+        }
+      }
+    }
+  }
+
+  .innerTable {
+    width: 50%;
+    margin: 0 auto;
+    padding: 3rem 0;
+  }
+
+  .status {
+    &--pending {
+      color: #c6ae1a;
+    }
+    &--rejected {
+      color: #ff4743;
+    }
+    &--approved {
+      color: #007a2e;
+    }
+    &--hide {
+      display: none;
+    }
+  }
+}
+
+.popUp-account {
+  left: calc(100% - 65vw) !important;
+  h3 {
+    margin: 0 auto;
+  }
+  width: 60rem !important;
+  @include table(1rem, $white, $color-text);
+  table {
+    th {
+      color: #0058a3 !important;
+    }
+    tbody tr {
+      border-top: 1px solid #cacaca;
+    }
+    td,
+    th {
+      padding: 0.8rem !important;
+      background-color: #fff;
+    }
+  }
+}
+
+.popUp-support {
+  left: calc(100% - 65vw) !important;
+  width: 60rem !important;
+  h3 {
+    margin: 0 auto;
+  }
+  @include table(1rem, $white, $color-text);
+
+  table {
+    tbody {
+      tr {
+        td {
+          background-color: #fff;
+          &:nth-child(2) {
+            color: #0058a3;
+            font-size: 3.3rem;
+          }
+        }
+      }
+    }
+  }
+}

@@ -62,7 +62,7 @@ export const Paginate = ({data, itemsPerPage = 10, onChange}: PaginateProps) => 
           </div>
           <div className="flex-item flex-item--autoSize">
             <div className="mr-1 ml-1 searchPaginate">
-              <Select name="hasta">
+              <Select name="hasta" style={{ minWidth: 'auto' }}>
                 <option value="10" key="10">
                   10
                 </option>

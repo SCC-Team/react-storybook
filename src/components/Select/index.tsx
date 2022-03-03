@@ -16,6 +16,10 @@ interface SelectProps {
    * Tipo
    */
   disabled?: true | false;
+  /**
+   * stilos para el componente
+   */
+  style?: any
   /** 
    * 
   */
@@ -28,9 +32,9 @@ interface SelectProps {
  *
  */
 
-const SelectNormal = ({name, children, disabled = false}: SelectProps) => {
+const SelectNormal = ({name, children, disabled = false, ...props}: SelectProps) => {
   return (
-    <select name={name} disabled={disabled}>
+    <select name={name} disabled={disabled} {...props}>
       {children}
     </select>
   );
@@ -82,6 +86,6 @@ const MultiSelect = (disabled: boolean = false) => {
  * 
  * Multiselect Disabled: Se utiliza temporalmente hasta que el usuario complete una acción que permita cargar los elementos (por ejemplo seleccionar la ciudad para cargar las comunas).
  */
-export const Select = ({ children, type = "normal", disabled=false }: SelectProps) => {
-  return type === "normal" ? SelectNormal({ children, disabled }) : MultiSelect(disabled);
+export const Select = ({ children, type = "normal", disabled=false, ...props }: SelectProps) => {
+  return type === "normal" ? SelectNormal({ children, disabled, ...props }) : MultiSelect(disabled);
 };
