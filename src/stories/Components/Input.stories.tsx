@@ -20,8 +20,8 @@ Normal.args = {
    value: 'Caja de texto'
 };
 
-export const Error = Template.bind({});
-Error.args = {
+export const Invalid = Template.bind({});
+Invalid.args = {
    value: 'Caja de texto',
    error: true,
 };
