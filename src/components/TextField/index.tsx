@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 
 import "../../sass/main.scss";
 import "../../sass/abstracts.scss";
@@ -7,15 +7,19 @@ interface TextFieldProps {
   /**
    * valor que muestra el input
    */
-   value?: string
+  value?: string
   /**
    * texto que se muestra cuando el input no tiene valor
    */
-   placeholder?: string
+  placeholder?: string
+   /**
+   * texto que se muestra cuando el input no tiene valor
+   */
+  disabled?: boolean
   /**
    * indica si el input debe mostrarse como marcado con error
    */
-   error?: boolean
+  error?: boolean
    /**
    * call back cada vez que el usuario realiza un cambio en la caja de texto
    */
@@ -28,6 +32,7 @@ interface TextFieldProps {
 export const TextField = ({
   value,
   placeholder,
+  disabled = false,
   error = false,
   onChangeText
 }: TextFieldProps) => {
@@ -36,7 +41,21 @@ export const TextField = ({
     onChangeText && onChangeText(e.target.value);
   }
 
+  const className = useMemo(()=>{
+    const classes = [
+      ...(error && ['error'] || []),
+      ...(disabled && ['disabled'] || []),
+    ].join(' ');
+    return classes;
+  }, [error, disabled]);
+
   return (
-    <input className={error && 'error' || ''} value={value} onChange={handleChange} placeholder={placeholder} />
+    <input
+      className={className}
+      placeholder={placeholder}
+      value={value}
+      onChange={handleChange}
+      disabled={disabled}
+    />
   );
 };

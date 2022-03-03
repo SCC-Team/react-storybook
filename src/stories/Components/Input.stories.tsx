@@ -20,13 +20,13 @@ Normal.args = {
    value: 'Caja de texto'
 };
 
-export const Correcto = Template.bind({});
-Correcto.args = {
-   value: 'Caja de texto'
-};
-
 export const Error = Template.bind({});
 Error.args = {
    value: 'Caja de texto',
    error: true,
+};
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+   value: 'Caja de texto'
 };
