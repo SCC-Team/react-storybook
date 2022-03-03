@@ -1,3 +1,9 @@
-input {
+@import "../../sass/abstracts.scss";
+
+.input-root {
+  width: 100%;
   max-width: 400px;
+  &--fullwidth {
+    max-width: 100%;
+  }
 }

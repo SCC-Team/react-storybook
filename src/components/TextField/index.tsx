@@ -1,7 +1,5 @@
 import React, { useMemo } from "react";
 
-import "../../sass/main.scss";
-import "../../sass/abstracts.scss";
 import "./index.scss";
 
 interface TextFieldProps {
@@ -49,12 +47,13 @@ export const TextField = ({
 
   const className = useMemo(()=>{
     const classes = [
+      'input-root',
       ...(error && ['error'] || []),
       ...(disabled && ['disabled'] || []),
-      ...(fullWidth && [''] || []),
+      ...(fullWidth && ['input-root--fullwidth'] || []),
     ].join(' ');
     return classes;
-  }, [error, disabled]);
+  }, [error, disabled, fullWidth]);
 
   return (
     <input
