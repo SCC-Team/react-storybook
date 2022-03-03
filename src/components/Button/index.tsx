@@ -15,6 +15,7 @@ interface ButtonProps {
    * Contenido de texto
    */
   text: string;
+  onClick?: () => void
 }
 
 /**
