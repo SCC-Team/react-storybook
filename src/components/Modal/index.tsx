@@ -11,10 +11,6 @@ interface ModalProps {
    */
   open: boolean
   /**
-   * tipo de botonesm "Aceptar" o "Cerrar"
-   */
-  buttons: 'primary' | 'both'
-  /**
    * título del modal
    */
   title: string
@@ -23,13 +19,13 @@ interface ModalProps {
    */
   content: string
   /**
+   * Botones de acciones
+   */
+   buttons?: JSX.Element | Array<JSX.Element> 
+  /**
    * call back cuando el modal es mandado a cerrar
    */
   onClose?: () => void
-   /**
-   * call back cuando el usuario hace click en el botón aceptar
-   */
-  onAccept?: () => void
 }
 
 /**
@@ -37,11 +33,10 @@ interface ModalProps {
  */
 export const Modal = ({
   open = false,
-  buttons = "primary",
+  buttons,
   title,
   content,
   onClose,
-  onAccept
 }: ModalProps) => {
 
   const handleClose = () => {
@@ -67,12 +62,13 @@ export const Modal = ({
         <span style={{ display: 'flex', fontSize: '1.2rem', padding: 10 }}>
           {content}
         </span>
-        <div className="flex-container flex--column flex--center mt-1">
-          <div style={{ display: 'flex', gap: '0.5rem' }} className="flex-item flex-item__6 mr-0 mb-0">
-            <Button color="secondary" text="cancelar" onClick={onClose} />
-            {buttons === 'both' && (<Button color="primary" text="Aceptar" onClick={onAccept} />)}
+        {buttons && (
+          <div className="flex-container flex--column flex--center mt-1">
+            <div style={{ display: 'flex', gap: '0.5rem' }} className="flex-item flex-item__6 mr-0 mb-0">
+              {buttons}
+            </div>
           </div>
-        </div>
+        )}
       </section>
     </ReactModal>
   );

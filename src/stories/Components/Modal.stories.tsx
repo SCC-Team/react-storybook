@@ -2,6 +2,7 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Modal } from '../../components/Modal';
+import { Button } from '../../components/Button';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -20,7 +21,10 @@ Normal.args = {
    open: true,
    title: 'Título del modal',
    content: '¿Quieres guardar los cambios?',
-   buttons: 'both'
+   buttons: <>
+     <Button color="secondary" text="cancelar" />
+     <Button color="primary" text="Guardar" icon={<span className="icofont-save"></span>} />
+  </>
 };
 
 // export const Small = Template.bind({});

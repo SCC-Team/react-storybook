@@ -37,7 +37,7 @@ export const AlertBox = ({
         <div className={`alertbox alertbox--${color}`}>
           <div className="alertbox--flex">
             <div className="alertbox--area-icon">
-              {color === "success" && <span className="icofont-checked"></span>}
+              {color === "success" && <span className="icofont-check-circled"></span>}
               {color === "info" && (
                 <span className="icofont-info-circle"></span>
               )}

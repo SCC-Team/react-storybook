@@ -3,11 +3,16 @@ import React from "react";
 import "../../sass/main.scss";
 import "../../sass/abstracts.scss";
 
+export interface BreadcrumbsLinksTypes {
+  name: string
+  uri: string
+}
+
 interface BreadcrumbsProps {
   /**
    * arreglo con los titulos que mostrará
    */
-   values?: Array<string>
+  breads?: Array<BreadcrumbsLinksTypes>
    /**
    * call back cuando el usuario haga click en uno de las migas
    */
@@ -17,8 +22,8 @@ interface BreadcrumbsProps {
 /**
 
  */
-export const Breadcrumbs = ({
-  values,
+const Breadcrumbs = ({
+  breads,
   onSelect
 }: BreadcrumbsProps) => {
 
@@ -29,21 +34,23 @@ export const Breadcrumbs = ({
   return (
     <>
       <nav className="breadcrumbs">
-        {values?.map((value, index)=>{
-          if (index+1===values.length) { // last item
+        {breads?.map(({ name, uri }, index)=>{
+          if (index+1===breads.length) { // last item
             return (
-              <span className="breadcrumbs active">
-                {value}
+              <span key={index} className="breadcrumbs active">
+                {name}
               </span>
             ); 
           }
           return (
-            <div onClick={() => handleChange(index)}>
-              {value} <span className="icofont-simple-right"></span>
-            </div>
+            <a key={index} href={uri} onClick={() => handleChange(index)}>
+              {name} <span className="icofont-simple-right"></span>
+            </a>
           );
         })}
       </nav>
     </> 
   );
 };
+
+export default Breadcrumbs;

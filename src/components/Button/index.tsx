@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import "../../sass/main.scss";
 import "../../sass/abstracts.scss";
 
@@ -6,7 +6,15 @@ interface ButtonProps {
   /**
    * color del botón
    */
-  color?: "primary" | "secondary" | "disabled" | "loading";
+  color?: "primary" | "secondary";
+  /**
+   * desactiva el botón
+   */
+  disabled?: boolean
+  /**
+   * desactiva el botón
+   */
+  loading?: boolean
   /**
    * Tamaño?
    */
@@ -15,6 +23,13 @@ interface ButtonProps {
    * Contenido de texto
    */
   text: string;
+  /**
+   * Icono que se mostrará en el botón de la librería https://icofont.com/icons
+   */
+  icon?: JSX.Element;
+  /**
+   * Función que es ejecutada cuando el usuario hace click sobre el componente
+   */
   onClick?: () => void
 }
 
@@ -31,15 +46,37 @@ interface ButtonProps {
 export const Button = ({
   // size = 'medium',
   color = "primary",
+  disabled = false,
+  loading = false,
+  icon,
   text,
   ...props
 }: ButtonProps) => {
+
+  const className = useMemo(()=>{
+    const classes = [
+      'btn',
+      ...(disabled && ['btn-disabled'] || []),
+      ...(loading && ['btn-loading'] || []),
+      ...(color && [`btn-${color}`] || []),
+    ].join(' ');
+    return classes;
+  }, [disabled, loading, color]);
+
   return (
-    <button type="button" className={`btn btn-${color}`} {...props}>
-      {color === "loading" && (
+    <button type="button" disabled={disabled} className={className} {...props}>
+      {loading ? (
         <span className="container">
           <span className="icofont-spinner rotation-animation"></span>
         </span>
+      ) : (
+        <>
+          {((icon || '') !== '') && (
+            <span className="container">
+              {icon}
+            </span>
+          )}
+        </>
       )}
       {text}
     </button>

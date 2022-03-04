@@ -29,14 +29,21 @@ Secondary.args = {
 
 export const Disabled = Template.bind({});
 Disabled.args = {
-  color: 'disabled',
+  disabled: true,
   text: 'Botón Deshabilitado',
 };
 
 export const loading = Template.bind({});
 loading.args = {
-  color: 'loading',
+  loading: true,
   text: 'Botón Cargando',
+};
+
+export const Icon = Template.bind({});
+Icon.args = {
+  color: 'primary',
+  text: 'Guardar',
+  icon: <span className="icofont-save" />
 };
 
 // export const Large = Template.bind({});
