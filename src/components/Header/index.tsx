@@ -12,7 +12,7 @@ interface HeaderProps {
   /**
    * arreglo con los titulos que mostrará
    */
-   breads?: Array<BreadcrumbsLinksTypes>,
+   crumbs?: Array<BreadcrumbsLinksTypes>,
    /**
    * call back cuando el usuario haga click en uno de las migas
    */
@@ -24,7 +24,7 @@ interface HeaderProps {
  */
 export const Header = ({
   title,
-  breads,
+  crumbs,
   onSelect
 }: HeaderProps) => {
 
@@ -37,7 +37,7 @@ export const Header = ({
       <div className="flex-container flex--spaceBetween">
         <div className="flex-item flex-item__18 mb-0 mr-0">
           <h1 className="mb-1">{title}</h1>
-          <Breadcrumbs breads={breads} onSelect={handleChange} />
+          <Breadcrumbs crumbs={crumbs} onSelect={handleChange} />
         </div>
       </div>
     </header>

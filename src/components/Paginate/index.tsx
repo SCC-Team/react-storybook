@@ -10,6 +10,10 @@ interface PaginateProps {
    */
    itemsPerPage?: number
   /**
+   * Permite establecer si se muestra o no el select de cuantas páginas mostrar, (default: true)
+   */
+  showSelect?: boolean
+  /**
    * arreglo de los datos
    */
    data: Array<string>
@@ -20,7 +24,7 @@ interface PaginateProps {
 }
 
 
-export const Paginate = ({data, itemsPerPage = 10, onChange}: PaginateProps) => {
+export const Paginate = ({data, itemsPerPage = 10, showSelect = true, onChange}: PaginateProps) => {
   const [pageCount, setPageCount] = useState(3);
   const totalPages = Math.ceil(data.length / itemsPerPage);
 
@@ -60,24 +64,26 @@ export const Paginate = ({data, itemsPerPage = 10, onChange}: PaginateProps) => 
               />
             </div>
           </div>
-          <div className="flex-item flex-item--autoSize">
-            <div className="mr-1 ml-1 searchPaginate">
-              <Select name="hasta" style={{ minWidth: 'auto' }}>
-                <option value="10" key="10">
-                  10
-                </option>
-                <option value="25" key="25">
-                  15
-                </option>
-                <option value="50" key="50">
-                  20
-                </option>
-                <option value="100" key="100">
-                  25
-                </option>
-              </Select>
+          {showSelect && (
+            <div className="flex-item flex-item--autoSize">
+              <div className="mr-1 ml-1 searchPaginate">
+                <Select name="hasta" style={{ minWidth: 'auto' }}>
+                  <option value="10" key="10">
+                    10
+                  </option>
+                  <option value="25" key="25">
+                    15
+                  </option>
+                  <option value="50" key="50">
+                    20
+                  </option>
+                  <option value="100" key="100">
+                    25
+                  </option>
+                </Select>
+              </div>
             </div>
-          </div>
+          )}
         </div>
       )}
     </>

@@ -25,5 +25,5 @@ const MockData: BreadcrumbsLinksTypes[] = [
 export const Normal = Template.bind({});
 Normal.args = {
    title: 'Inicio',
-   breads: MockData
+   crumbs: MockData
 };

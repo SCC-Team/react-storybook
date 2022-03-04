@@ -12,7 +12,7 @@ interface BreadcrumbsProps {
   /**
    * arreglo con los titulos que mostrará
    */
-  breads?: Array<BreadcrumbsLinksTypes>
+  crumbs?: Array<BreadcrumbsLinksTypes>
    /**
    * call back cuando el usuario haga click en uno de las migas
    */
@@ -23,7 +23,7 @@ interface BreadcrumbsProps {
 
  */
 const Breadcrumbs = ({
-  breads,
+  crumbs,
   onSelect
 }: BreadcrumbsProps) => {
 
@@ -34,8 +34,8 @@ const Breadcrumbs = ({
   return (
     <>
       <nav className="breadcrumbs">
-        {breads?.map(({ name, uri }, index)=>{
-          if (index+1===breads.length) { // last item
+        {crumbs?.map(({ name, uri }, index)=>{
+          if (index+1===crumbs.length) { // last item
             return (
               <span key={index} className="breadcrumbs active">
                 {name}
