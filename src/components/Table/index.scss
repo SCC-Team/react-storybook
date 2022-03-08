@@ -1,0 +1,57 @@
+@import "../../sass/abstracts";
+
+.tabletemplate {
+  @include content-2(0, 1rem, 1rem, $grey-ultra-light);
+  &--page-title {
+    background: scale-color($blue-dark, $lightness: +90%);
+    border-radius: 1rem 1rem 0 0;
+    h1 {
+      font-size: 1.5rem;
+    }
+    & .menu-dropdown {
+      & .btn-white {
+        width: auto !important;
+      }
+    }
+  }
+  &--data {
+    &-table {
+      @include table(
+        1rem,
+        $color-text-active,
+        $white,
+        left,
+        left,
+        $color-text,
+        $color-text,
+        $blue-dark,
+        $blue-dark,
+        $white,
+        1rem
+      );
+      table {
+        thead {
+          tr {
+            th {
+              &:nth-child(11) {
+                text-align: center;
+              }
+            }
+          }
+        }
+        tbody {
+          tr {
+            td {
+              &:nth-child(11) {
+                text-align: center;
+              }
+              button {
+                width: auto;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
