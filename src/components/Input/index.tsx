@@ -2,7 +2,7 @@ import React, { useMemo } from "react";
 
 import "./index.scss";
 
-interface TextFieldProps {
+interface InputProps {
   /**
    * valor que muestra el input
    */
@@ -10,7 +10,7 @@ interface TextFieldProps {
   /**
    * tipo de dato que tendrá la caja de texto
    */
-   type?: "text" | "number"
+   type?: "text" | "number" | "time"
   /**
    * texto que se muestra cuando el input no tiene valor
    */
@@ -36,7 +36,7 @@ interface TextFieldProps {
 /**
 
  */
-export const TextField = ({
+export const Input = ({
   value,
   placeholder,
   type = 'text',
@@ -44,7 +44,7 @@ export const TextField = ({
   disabled = false,
   error = false,
   onChangeText
-}: TextFieldProps) => {
+}: InputProps) => {
 
   const handleChange = (e: any) => {
     onChangeText && onChangeText(e.target.value);

@@ -2,7 +2,7 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Fieldsets } from '../../components/Fieldsets';
-import { TextField } from '../../components/TextField';
+import { Input } from '../../components/Input';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -19,8 +19,8 @@ const Template: ComponentStory<typeof Fieldsets> = (args) => <Fieldsets {...args
 const Mockup = () => {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 2}}>
-      <TextField placeholder="Nombre" value='' />
-      <TextField placeholder="Apellido" value='' />
+      <Input placeholder="Nombre" value='' />
+      <Input placeholder="Apellido" value='' />
     </div>
   );
 }
