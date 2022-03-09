@@ -6,7 +6,7 @@ interface ButtonProps {
   /**
    * color del botón
    */
-  color?: "primary" | "secondary";
+  color?: "primary" | "secondary" | "danger";
   /**
    * desactiva el botón
    */
@@ -16,9 +16,9 @@ interface ButtonProps {
    */
   loading?: boolean
   /**
-   * Tamaño?
+   * Tamaño
    */
-  // size?: 'small' | 'medium' | 'large';
+  size?: 'small' | 'normal';
   /**
    * Contenido de texto
    */
@@ -48,6 +48,7 @@ export const Button = ({
   color = "primary",
   disabled = false,
   loading = false,
+  size = 'normal',
   icon,
   text,
   ...props
@@ -59,6 +60,7 @@ export const Button = ({
       ...(disabled && ['btn-disabled'] || []),
       ...(loading && ['btn-loading'] || []),
       ...(color && [`btn-${color}`] || []),
+      ...( size && [`btn-${size}`] )
     ].join(' ');
     return classes;
   }, [disabled, loading, color]);

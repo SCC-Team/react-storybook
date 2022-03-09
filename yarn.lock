@@ -1510,10 +1510,10 @@
   "resolved" "https://registry.npmjs.org/@popperjs/core/-/core-2.11.2.tgz"
   "version" "2.11.2"
 
-"@scc/styles@^1.0.25":
-  "integrity" "sha1-diNRFFFdUzfXRbU27KSFnpNhhXU="
-  "resolved" "https://gitlab.falabella.com/api/v4/projects/42122/packages/npm/@scc/styles/-/@scc/styles-1.0.25.tgz"
-  "version" "1.0.25"
+"@scc/styles@^1.0.27":
+  "integrity" "sha1-fxJaCQYQq27GmtsUIuOFHORpKHs="
+  "resolved" "https://gitlab.falabella.com/api/v4/projects/42122/packages/npm/@scc/styles/-/@scc/styles-1.0.27.tgz"
+  "version" "1.0.27"
 
 "@storybook/addon-actions@^6.4.19", "@storybook/addon-actions@6.4.19":
   "integrity" "sha512-GpSvP8xV8GfNkmtGJjfCgaOx6mbjtyTK0aT9FqX9pU0s+KVMmoCTrBh43b7dWrwxxas01yleBK9VpYggzhi/Fw=="

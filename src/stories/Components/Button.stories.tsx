@@ -27,6 +27,12 @@ Secondary.args = {
   text: 'Botón Secundario',
 };
 
+export const Danger = Template.bind({});
+Danger.args = {
+  color: 'danger',
+  text: 'Botón Danger',
+};
+
 export const Disabled = Template.bind({});
 Disabled.args = {
   disabled: true,
