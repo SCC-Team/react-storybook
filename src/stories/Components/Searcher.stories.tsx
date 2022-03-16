@@ -13,10 +13,9 @@ export default {
 } as ComponentMeta<typeof Searcher>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof Searcher> = (args) => <Searcher {...args} />;
+const Template: ComponentStory<typeof Searcher> = (args) => <Searcher />;
 
 export const Normal = Template.bind({});
 Normal.args = {
-    withPaginate: false,
 };
 
