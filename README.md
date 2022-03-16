@@ -4,7 +4,7 @@ _Este es un proyecto React + Typescript_
 
 ## Comenzando 🚀
 
-_Esta aplicación fue desplegada en GitHub Pages: [ver sitio](https://cgonzalezm1234.github.io/storybook/)._
+_Esta aplicación fue desplegada en GitHub Pages: [ver sitio](https://scc-team.github.io/react-storybook)._
 
 _En caso que requieras obtener una copia del proyecto en tu máquina local para propósitos de desarrollo y pruebas, puedes seguir estas instrucciones._
 
@@ -17,7 +17,7 @@ _Es necesario que tengas instalado [Git](https://git-scm.com/), [Nodejs](https:/
 _el primer paso es clonar el proyecto en tu local_
 
 ```
-$ git clone https://github.com/cgonzalezm1234/storybook.git
+$ git clone https://gitlab.falabella.com/tech-corp/enterprise-support/finance-management/treasury/scc/poc/frontend/poc-react-storybook.git
 ```
 
 _luego tienes que instalar las dependencias_
@@ -41,4 +41,4 @@ _Estas herramamientas se utilizaron para crear el proyecto_
 
 ## Autor ✒️
 
-- **Camilo González**
+- **Falabella ©**
