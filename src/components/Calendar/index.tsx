@@ -17,7 +17,7 @@ export const Calendar = ({ type = "normal" }: SelectProps) => {
   const [value, onChange] = useState(new Date);
 
   const [valueRange, onChangeRange] = useState([
-    new Date(), 7,
+    new Date(),
     (new Date()),
   ]);
 
