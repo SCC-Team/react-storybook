@@ -71,8 +71,8 @@
     "@storybook/react": "^6.4.19",
     "@storybook/testing-library": "^0.0.9",
     "@types/d3": "^7.1.0",
-    "@types/react-faux-dom": "^4.1.5",
     "@types/react-beautiful-dnd": "^13.1.2",
+    "@types/react-faux-dom": "^4.1.5",
     "@types/react-modal": "^3.13.1",
     "autoprefixer": "^10.4.4",
     "babel-loader": "^8.2.3",
@@ -86,5 +86,8 @@
     "storybook-addon-xd-designs": "^6.0.0",
     "style-loader": "^2.0.0",
     "tailwindcss": "^3.0.23"
+  },
+  "overrides": {
+    "webpack": "5.66.0"
   }
 }
