@@ -103,6 +103,8 @@
     color: #238f51 !important;
   }
 
+  
+
   .zz {
     color: #dfbf0a !important;
   }
@@ -196,10 +198,14 @@
   }
 }
 
-.tooltip {
-  @apply invisible absolute;
+.bg-white { 
+  background-color: #ffff;
 }
 
-.has-tooltip:hover .tooltip {
-  @apply visible z-50 ;
-}
+// .tooltip {
+//   @apply invisible absolute;
+// }
+
+// .has-tooltip:hover .tooltip {
+//   @apply visible z-50 ;
+// }

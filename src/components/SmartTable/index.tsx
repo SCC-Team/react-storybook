@@ -95,9 +95,43 @@ const SmartTable = ({
           <div className="h-20 self-end">
             {customColumns && (
               <button
-                className="btn btn-secondary"
+                className="btn btn-secondary p-0"
                 onClick={() => setToggleModal(!toggleModal)}>
-                <span className="icofont-layout p-0"></span>
+                <span className="p-1 m-0">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="18"
+                    viewBox="0 0 34 18">
+                    <line
+                      id="Line_8"
+                      data-name="Line 8"
+                      y2="18"
+                      transform="translate(5)"
+                      fill="none"
+                      stroke="#707070"
+                      stroke-width="10"
+                    />
+                    <line
+                      id="Line_9"
+                      data-name="Line 9"
+                      y2="18"
+                      transform="translate(17)"
+                      fill="none"
+                      stroke="#707070"
+                      stroke-width="10"
+                    />
+                    <line
+                      id="Line_10"
+                      data-name="Line 10"
+                      y2="18"
+                      transform="translate(29)"
+                      fill="none"
+                      stroke="#707070"
+                      stroke-width="10"
+                    />
+                  </svg>
+                </span>
               </button>
             )}
             {customDensity && (
@@ -207,7 +241,7 @@ const SmartTable = ({
                         index={i}>
                         {(provided) => (
                           <li
-                            className={`my-2 shadow-md ${
+                            className={`my-2 shadow-md bg-white ${
                               !item.active && 'text-disabled shadow-none'
                             }`}
                             ref={provided.innerRef}
