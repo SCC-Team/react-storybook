@@ -1,9 +1,8 @@
-import React, { useState, useEffect, useRef, useCallback } from "react";
-import ReactModal from "react-modal";
-import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
-
-import "./index.scss";
-import axios from "axios";
+import React, {useState, useEffect, useRef, useCallback} from 'react';
+import ReactModal from 'react-modal';
+import {DragDropContext, Draggable, Droppable} from 'react-beautiful-dnd';
+import './index.scss';
+import axios from 'axios';
 
 interface TableProps {
   /**
@@ -27,7 +26,7 @@ const SmartTable = ({
   customColumns,
   customDensity,
 }: TableProps) => {
-  const [density, setDensity] = useState("condensed");
+  const [density, setDensity] = useState('condensed');
   const [toggleModal, setToggleModal] = useState<any>(false);
   const [header, setHeader] = useState<any>(thead);
   const [loading, setLoading] = useState(true);
@@ -56,12 +55,12 @@ const SmartTable = ({
 
     let cancel;
     axios({
-      method: "GET",
-      url: "http://openlibrary.org/search.json",
-      params: { q: "angel", page: pageNumber },
+      method: 'GET',
+      url: 'http://openlibrary.org/search.json',
+      params: {q: 'angel', page: pageNumber},
       cancelToken: new axios.CancelToken((c) => (cancel = c)),
     })
-      .then((res: { data: { docs: string | any[]; }; }) => {
+      .then((res: {data: {docs: string | any[]}}) => {
         setItems((prevItems) => {
           return [...new Set([...prevItems, ...res.data.docs])];
         });
@@ -70,8 +69,7 @@ const SmartTable = ({
         setLoading(false);
       })
       .catch((e: any) => {
-        
-       console.log(e)
+        console.log(e);
       });
   }, [pageNumber]);
 
@@ -98,8 +96,7 @@ const SmartTable = ({
             {customColumns && (
               <button
                 className="btn btn-secondary"
-                onClick={() => setToggleModal(!toggleModal)}
-              >
+                onClick={() => setToggleModal(!toggleModal)}>
                 <span className="icofont-layout p-0"></span>
               </button>
             )}
@@ -107,20 +104,17 @@ const SmartTable = ({
               <>
                 <button
                   className="btn btn-secondary mx-2"
-                  onClick={() => setDensity("condensed")}
-                >
+                  onClick={() => setDensity('condensed')}>
                   Condensed
                 </button>
                 <button
                   className="btn btn-secondary mx-2"
-                  onClick={() => setDensity("regular")}
-                >
+                  onClick={() => setDensity('regular')}>
                   Regular
                 </button>
                 <button
                   className="btn btn-secondary mx-2"
-                  onClick={() => setDensity("relaxed")}
-                >
+                  onClick={() => setDensity('relaxed')}>
                   Relaxed
                 </button>
                 {/* <div className="has-tooltip">
@@ -159,15 +153,15 @@ const SmartTable = ({
                             header.length > 0 &&
                             header.map((item: any, i: any) => {
                               if (item.active) {
-                                if(items.length === index + 1) {
-                                    return (
-                                      <td ref={lastElementRef}>
-                                        {data[item.col_id]}
-                                      </td>
-                                    );
-                                  } else {
-                                    return <td>{data[item.col_id]}</td>;
-                                  }
+                                if (items.length === index + 1) {
+                                  return (
+                                    <td ref={lastElementRef}>
+                                      {data[item.col_id]}
+                                    </td>
+                                  );
+                                } else {
+                                  return <td>{data[item.col_id]}</td>;
+                                }
                               }
                             })}
                         </tr>
@@ -184,16 +178,14 @@ const SmartTable = ({
         className="popUp popUp-column"
         isOpen={toggleModal}
         onRequestClose={() => setToggleModal(!toggleModal)}
-        style={{ overlay: { background: "rgba(0, 0, 0, 0.50)" } }}
-      >
+        style={{overlay: {background: 'rgba(0, 0, 0, 0.50)'}}}>
         <header className="popUp--header">
           <h3 className="popUp--header__title">Personalizar Columnas</h3>
           <button
             className="btn popUp--header__closeButton"
             onClick={() => {
               setToggleModal(!toggleModal);
-            }}
-          >
+            }}>
             <span className="icofont-close-circled"></span>
           </button>
         </header>
@@ -204,8 +196,7 @@ const SmartTable = ({
                 <ul
                   className="list-none draggable-list p-0"
                   {...provided.droppableProps}
-                  ref={provided.innerRef}
-                >
+                  ref={provided.innerRef}>
                   {header &&
                     header.length > 0 &&
                     header.map((item: any, i: any) => (
@@ -213,17 +204,15 @@ const SmartTable = ({
                         key={item.title}
                         draggableId={item.title}
                         isDragDisabled={!item.active}
-                        index={i}
-                      >
+                        index={i}>
                         {(provided) => (
                           <li
                             className={`my-2 shadow-md ${
-                              !item.active && "text-disabled shadow-none"
+                              !item.active && 'text-disabled shadow-none'
                             }`}
                             ref={provided.innerRef}
                             {...provided.draggableProps}
-                            {...provided.dragHandleProps}
-                          >
+                            {...provided.dragHandleProps}>
                             <div className="pr-10">
                               <input
                                 type="checkbox"
@@ -233,19 +222,27 @@ const SmartTable = ({
                               {item.title}
                             </div>
 
-                            <span>
-                              <img
-                                src={`${
-                                  !item.active
-                                    ? "./images/svg/navigation-menu.svg"
-                                    : "./images/svg/navigation-primary.svg"
-                                }`}
-                                alt="Drag"
-                                width="20px"
-                                height="20px"
-                                color="blue"
-                              />
-                            </span>
+                            {!item.active ? (
+                              <span>
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  viewBox="0 0 448 512"
+                                  width="20px"
+                                  fill="#c7c7c9">
+                                  <path d="M416 288C433.7 288 448 302.3 448 320C448 337.7 433.7 352 416 352H32C14.33 352 0 337.7 0 320C0 302.3 14.33 288 32 288H416zM416 160C433.7 160 448 174.3 448 192C448 209.7 433.7 224 416 224H32C14.33 224 0 209.7 0 192C0 174.3 14.33 160 32 160H416z" />
+                                </svg>
+                              </span>
+                            ) : (
+                              <span>
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  viewBox="0 0 448 512"
+                                  fill="#454951"
+                                  width="20px">
+                                  <path d="M416 288C433.7 288 448 302.3 448 320C448 337.7 433.7 352 416 352H32C14.33 352 0 337.7 0 320C0 302.3 14.33 288 32 288H416zM416 160C433.7 160 448 174.3 448 192C448 209.7 433.7 224 416 224H32C14.33 224 0 209.7 0 192C0 174.3 14.33 160 32 160H416z" />
+                                </svg>
+                              </span>
+                            )}
                           </li>
                         )}
                       </Draggable>
@@ -260,8 +257,7 @@ const SmartTable = ({
               className="btn-secondary mx-2"
               onClick={() => {
                 setToggleModal(!toggleModal);
-              }}
-            >
+              }}>
               Cerrar
             </button>
           </div>
