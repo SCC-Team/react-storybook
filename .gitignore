@@ -26,3 +26,4 @@ yarn-error.log*
 .log
 .npmrc
 build-storybook.log
+yarn.lock
