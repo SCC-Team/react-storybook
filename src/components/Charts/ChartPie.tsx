@@ -16,13 +16,22 @@ const ChartPie = withFauxDOM((props: any) => {
   const [isInit, setInit] = useState<boolean>(false);
 
   useEffect(() => {
+    let colorsSchema;
     const faux = connectFauxDOM('div', 'chart');
     // Construct arcs.
     const arcs = d3.pie().padAngle(1 / outerRadius).sort(null).value(i => data[i])(I);
     const arc = d3.arc().innerRadius(donut ? Math.min(width, height) / 3 : 1).outerRadius(outerRadius);
     const arcLabel = d3.arc().innerRadius(0).outerRadius(outerRadius);
 
-    const colors = ['#0B59A3', '#69BBFF', '#FFDB00'];
+    // colorsSchema = ['#0B59A3'];
+    // colorsSchema = d3.schemeSpectral[data.length];
+    // colorsSchema = d3.quantize(t => d3.interpolateSpectral(t * 0.8 + 0.1), data.length);
+
+    // interpola una escala de azules
+    colorsSchema = d3.scaleSequential(d3.interpolateBlues)
+    .domain([-1, data.length]);
+
+    //colorsSchema = d3.scaleOrdinal(data.map((_, i) => i), colorsSchema);
 
     let svg = d3.select(faux);
     
@@ -44,7 +53,7 @@ const ChartPie = withFauxDOM((props: any) => {
       .selectAll("path")
       .data(arcs)
       .join("path")
-      .attr("fill", d => colors[d.index])
+      .attr("fill", d => colorsSchema(d.index))
       .attr("d", arc)
       .append("title")
       .text(d => d.value);
@@ -55,7 +64,7 @@ const ChartPie = withFauxDOM((props: any) => {
       .selectAll("path")
       .data(arcs)
       .join("path")
-      .attr("fill", d => colors[d.index])
+      .attr("fill", d => colorsSchema(d.index))
       .attr("d", arc)
       .append("title")
       .text(d => d.value);
