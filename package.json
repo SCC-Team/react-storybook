@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@scc/icons": "^1.0.3",
     "@scc/styles": "^1.0.32",
     "@storybook/addons": "^6.4.19",
     "@storybook/preset-scss": "^1.0.3",

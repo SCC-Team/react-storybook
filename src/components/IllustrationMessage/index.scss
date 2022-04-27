@@ -1,0 +1,63 @@
+@import '../../sass/abstracts';
+
+.main-container {
+  position: relative;
+  height: 100vh;
+  background-color: rgb(13, 13, 70);
+}
+.illustration {
+  height: 50vh;
+  width: 80%;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  background-image: linear-gradient(
+    316deg,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0.2)
+  );
+  border-radius: 1rem;
+  border: 1px inset rgba(255, 255, 255, 0.2);
+  box-shadow: 0 1rem 3.5rem rgba(0, 0, 0, 0.5);
+}
+
+.content-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin: 1rem;
+  padding: 1rem;
+  background: #f9f9f9 0% 0% no-repeat padding-box;
+  border-radius: 8px;
+  opacity: 1;
+  height: 95%;
+}
+
+.illustration-title {
+  text-align: center;
+  font-size: 20px;
+  letter-spacing: -0.5px;
+  color: #0058a3;
+  opacity: 1;
+}
+
+.image-container {
+  width: 180px;
+  height: 180px;
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.description {
+  font-size: 14px;
+  text-align: left;
+  letter-spacing: 0px;
+  color: #0058a3;
+  opacity: 1;
+}
